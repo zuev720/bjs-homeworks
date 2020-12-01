@@ -36,16 +36,16 @@ class AlarmClock {
     }
 
     start() {
-        const now = this.getCurrentFormattedTime();
+        const now = this.getCurrentFormattedTime;
         if (this.timerId === null) {
             this.timerId = setInterval(() => {
                 this.alarmCollection.forEach(element => checkClock(element));
             }, 60000);
         }
         function checkClock(clock) {
-            const checkTime = now;
+            const checkTime = now();
             if (clock.time === checkTime) {
-                return clock.callback;
+                return clock.callback();
             }
         }
     }
